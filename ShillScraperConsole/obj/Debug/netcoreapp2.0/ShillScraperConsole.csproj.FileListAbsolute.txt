@@ -1,0 +1,11 @@
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\bin\Debug\netcoreapp2.0\ShillScraperConsole.deps.json
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\bin\Debug\netcoreapp2.0\ShillScraperConsole.runtimeconfig.json
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\bin\Debug\netcoreapp2.0\ShillScraperConsole.runtimeconfig.dev.json
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\bin\Debug\netcoreapp2.0\ShillScraperConsole.dll
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.csprojResolveAssemblyReference.cache
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.csproj.CoreCompileInputs.cache
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.AssemblyInfoInputs.cache
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.AssemblyInfo.cs
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\bin\Debug\netcoreapp2.0\ShillScraperConsole.pdb
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.dll
+C:\Users\yildy\Desktop\ShillScraperConsole\ShillScraperConsole\obj\Debug\netcoreapp2.0\ShillScraperConsole.pdb
