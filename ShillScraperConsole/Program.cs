@@ -12,7 +12,7 @@ namespace ShillScraperConsole
     {
         static void Main(string[] args)
         {
-            Shill shill = new Shill();
+            Shill shill = new Shill(4);
             shill.PrintFrequencies();
             Console.ReadLine();
         }

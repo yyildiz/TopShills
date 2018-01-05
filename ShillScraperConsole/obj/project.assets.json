@@ -3714,11 +3714,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\yildy\\Desktop\\ShillScraperConsole\\ShillScraperConsole\\ShillScraperConsole.csproj",
+      "projectUniqueName": "C:\\Users\\yildy\\Desktop\\TopShills\\ShillScraperConsole\\ShillScraperConsole.csproj",
       "projectName": "ShillScraperConsole",
-      "projectPath": "C:\\Users\\yildy\\Desktop\\ShillScraperConsole\\ShillScraperConsole\\ShillScraperConsole.csproj",
+      "projectPath": "C:\\Users\\yildy\\Desktop\\TopShills\\ShillScraperConsole\\ShillScraperConsole.csproj",
       "packagesPath": "C:\\Users\\yildy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yildy\\Desktop\\ShillScraperConsole\\ShillScraperConsole\\obj\\",
+      "outputPath": "C:\\Users\\yildy\\Desktop\\TopShills\\ShillScraperConsole\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

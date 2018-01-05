@@ -8,16 +8,17 @@ namespace ShillScraperConsole
 {
     class Shill : WebScraper
     {
-        public Dictionary<string, List<Coin>> OrderedIdentifiers = new Dictionary<string, List<Coin>>();
-        public List<string> Urls = new List<string>();
-        public List<string> TitleWords = new List<string>();
-        public List<string> CommentWords = new List<string>();
+        private Dictionary<string, List<Coin>> OrderedIdentifiers = new Dictionary<string, List<Coin>>();
+        private List<string> Urls = new List<string>();
+        private string CurrentUrl = "https://www.reddit.com/r/CryptoCurrency/";
+        private int CurrentPage = 0;
+        private int TotalPages;
+        private string NextPage;
         public Dictionary<string, int> frequencies = new Dictionary<string, int>();
-        public Shill() {
-
+        public Shill(int TotalPages) {
             var AllCoins = GetAllCoins();
-
-            foreach(Coin coin in AllCoins)
+            this.TotalPages = TotalPages;
+            foreach (Coin coin in AllCoins)
             {
                 if(OrderedIdentifiers.ContainsKey(coin.symbol.ToLower()))
                 {
@@ -32,7 +33,6 @@ namespace ShillScraperConsole
                 }
             }
             OrderedIdentifiers = OrderedIdentifiers.OrderBy(p => p.Key).ToDictionary(p => p.Key, p => p.Value);
-
             Start();
         }
         public static List<Coin> GetAllCoins()
@@ -56,42 +56,48 @@ namespace ShillScraperConsole
         }
         public override void Init()
         {
+            var current = 0;
             this.LoggingLevel = LogLevel.All;
-            this.Request("https://www.reddit.com/r/CryptoCurrency/", Parse);
+            while(current++ < TotalPages)
+            {
+                this.Request(CurrentUrl, Parse);
+            }
+            
         }
         public override void Parse(Response response)
         {
-            GetCommentLinks(response);
-            GetFrequencies(TitleWords);
-            GetPostFrequencies();
+            GetTitles(response);
+            this.Request(Urls, ParseComments);
+            CurrentUrl = NextPage;
         }
-        public void GetCommentLinks(Response response)
+
+        private void GetTitles(Response response)
         {
-            foreach (var entry in response.Css(".entry"))
+            var Entries = response.Css(".entry");
+            foreach(HtmlNode entry in Entries)
             {
-                // Adding in TitleWords
-                TitleWords.AddRange(entry.Css("a.title").First().InnerText.Split(' '));
-                var link = entry.Css(".comments");
-                Urls.Add(link.First().GetAttribute("href"));
-                
+                GetFrequencies(entry.Css(".title a.title").First().InnerText.Split(' ').ToList());
+                Urls.Add(entry.Css("a.comments").First().GetAttribute("href"));
+            }
+            NextPage = response.Css(".next-button a").First().GetAttribute("href");
+        }
+
+        private void ParseComments(Response response)
+        {
+            var Comments = response.Css(".entry .usertext-body .md");
+            foreach(HtmlNode comment in Comments)
+            {
+                GetFrequencies(comment.InnerText.Split(' ').ToList());
             }
         }
 
-        public void GetPostFrequencies()
+        private void ParseNonsense(Response response)
         {
-            foreach(string link in Urls)
+            var Comments = response.Css(".entry .usertext-body .md");
+            foreach (HtmlNode comment in Comments)
             {
-                this.Request(link, QueryEachComment);
+                GetFrequencies(comment.InnerText.Split(' ').ToList());
             }
-        }
-
-        public void QueryEachComment(Response response)
-        {
-            foreach(var comment in response.Css(".md p"))
-            {
-                CommentWords.AddRange(comment.InnerText.Split(' '));
-            }
-            GetFrequencies(CommentWords);
         }
 
         public void GetFrequencies(List<string> words)
