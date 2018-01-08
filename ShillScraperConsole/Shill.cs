@@ -10,10 +10,11 @@ namespace ShillScraperConsole
     {
         private Dictionary<string, List<Coin>> OrderedIdentifiers = new Dictionary<string, List<Coin>>();
         private List<string> Urls = new List<string>();
-        private string CurrentUrl = "https://www.reddit.com/r/CryptoCurrency/";
+        private string CurrentUrl = "https://www.reddit.com/r/CryptoCurrency";
         private int CurrentPage = 0;
         private int TotalPages;
         private string NextPage;
+
         public Dictionary<string, int> frequencies = new Dictionary<string, int>();
         public Shill(int TotalPages) {
             var AllCoins = GetAllCoins();
