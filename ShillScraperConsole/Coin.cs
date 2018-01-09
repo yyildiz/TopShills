@@ -4,7 +4,6 @@ using System.Text;
 
 namespace ShillScraperConsole
 {
-
     public class Coin
     {
         public string id { get; set; }
