@@ -1,2 +1,2 @@
 # TopShills
-Scrapes Reddit's r/CryptoCurrency subreddit to find mentions of crypto currencies and ranks them based on the count of their occurrences.
+Scrapes various subreddits to find mentions of crypto currencies and ranks them based on the count of their occurrences.
